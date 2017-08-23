@@ -101,27 +101,35 @@ for (var i = 0; i < personElements.length; i++) {
 
 
 function dotBorder(event) {
+	// clear borders before adding anymore
+  clearBorders();
   global = event.currentTarget;
-  global.classList.toggle("border");
+  global.classList.add("border");
 }
 function changeHistory(event) {
   // To be used to change the p text
-  global.childNodes[1].childNodes[1].classList.toggle("hidden");
+  global.childNodes[1].childNodes[1].classList.add("hidden");
   
   inputTarget.focus();
-
+  // log typing
 	inputTarget.addEventListener("keyup", function(e){
 		console.log(e.target.value)
 		reWriteHistory.innerHTML = `${e.target.value}`;
 	});
-
-	inputTarget.addEventListener('keypress', function(event){
-		if(event.key === 'Enter') {
+	// on enter, wipe what you wrote clean and reset it
+	inputTarget.addEventListener("keypress", function(event){
+		if(event.key === "Enter") {
 			reWriteHistory.innerHTML = ``;
 			inputTarget.value = "";
 		  global.childNodes[1].childNodes[1].classList.toggle("hidden");
 		}
 	});
 }
+function clearBorders() {
+	for (var i = 0; i < personElements.length; i++) {
+		personElements[i].classList.remove("border");
+	}
+}
+
 
 
