@@ -1,0 +1,58 @@
+body {
+	margin: 0;
+	background-color: #FFFDFD;
+}
+img {
+	max-height: 300px;
+	max-width: 300px;
+	}
+h4 {
+	font-size: 1.5em;
+}
+h1 {
+	text-align: center;
+}
+#input-field {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 410px;
+    height: 25px;
+}
+
+#output-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+.person-container {
+	width: 350px;
+	margin: 2% 25px;
+	text-align: center;
+}
+.person-container header {
+  border-bottom: 1px solid black;
+  margin-bottom: 5%;
+}
+.person-container section p {
+	margin-left: 1%;
+	margin-right: 1%;
+	text-align: left;
+	text-indent: 1.5em;
+}
+.person-container footer {
+	margin: 0 10px;
+	font-size: 1.3em;
+	text-align: left;
+}
+.border {
+	border: 1px dotted black;
+}
+.person-container:nth-child(2n){
+	background-color: #FBFFA1;
+}
+.person-container:nth-child(2n - 1){
+	background-color: #679FCC;
+}
+.hidden {
+	display: none;
+}
