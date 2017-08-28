@@ -23,4 +23,4 @@ You've changed history! Now you hit enter to permanantly leave your mark!
 ##### Uh Oh,
 What you just wrote changes back! As it turns out you can't actually rewrite history.
 
-[example]: https://github.com/alexsanchez728/wysiwyg/blob/master/readme-images/wysisyg2Trimmed.gif "wysisyg Example gif two"
+[example]: https://github.com/alexsanchez728/wysiwyg/blob/master/readme-images/wysisyg2Trimmed.gif "wysisyg Example gif"
