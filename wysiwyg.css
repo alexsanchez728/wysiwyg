@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	background-color: #FFFDFD;
 }
 img {
 	max-height: 300px;
@@ -47,10 +48,10 @@ h1 {
 	border: 1px dotted black;
 }
 .person-container:nth-child(2n){
-	background-color: #ffff99;
+	background-color: #FBFFA1;
 }
 .person-container:nth-child(2n - 1){
-	background-color: #00ffff;
+	background-color: #679FCC;
 }
 .hidden {
 	display: none;

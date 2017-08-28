@@ -64,7 +64,7 @@ for (counter; counter < 5; counter++) {
 	domString +=				`<section>`;
 	domString +=					`<img src=${currentPerson.image}>`;
 	domString +=					`<p class="history">${currentPerson.bio}</p>`;
-	domString +=					`<p id="writeHere"></p>`;
+	domString +=					`<p id="yourInputText"></p>`;
 	domString +=				`</section>`;
 	domString +=				`<footer>`;
 	domString +=					`<h6>Birth: ${currentPerson.lifespan.birth}</h6>`;
@@ -80,25 +80,21 @@ outputPerson.innerHTML += domString;
 var personElements = document.getElementsByClassName("person-container");
 var inputTarget = document.getElementById("input-field");
 var history = document.getElementsByClassName("history");
-var reWriteHistory = document.getElementById("writeHere");
+var reWriteHistory = document.getElementById("yourInputText");
 var global;
+var currentPersonHistory
 // Event listeners are created
 for (var i = 0; i < personElements.length; i++) {
   personElements[i].addEventListener("click", function (event) {
 	  // logging that all clicks in a person's box register as clicks in "person-container"
   	console.log("clicked in a person's div", event);
-  	
   	// add border to selected container
 	 	dotBorder(event);
+console.log("trying to select each person's newtext", global.childNodes[1].childNodes[2])
 
-	 	// hides OG history
- 		// puts focus on inputTarget
- 		// allows all typed text to be in place of OG history
- 		// when the personContainer is blurred, text reverts to normal
 	 	changeHistory(event);
   });
 };
-
 
 function dotBorder(event) {
 	// clear borders before adding anymore
@@ -107,21 +103,23 @@ function dotBorder(event) {
   global.classList.add("border");
 }
 function changeHistory(event) {
-  // To be used to change the p text
-  global.childNodes[1].childNodes[1].classList.add("hidden");
-  
+
+  // puts focus on inputTarget
   inputTarget.focus();
-  // log typing
+  // typing
 	inputTarget.addEventListener("keyup", function(e){
-		console.log(e.target.value)
-		reWriteHistory.innerHTML = `${e.target.value}`;
+    // hides OG history
+    global.childNodes[1].childNodes[1].classList.add("hidden");
+		// console.log(e.target.value)
+    // allows all typed text to be in place of OG history
+    currentPersonHistory = global.childNodes[1].childNodes[2];
+		currentPersonHistory.innerHTML = `${e.target.value}`;
 	});
+
 	// on enter, wipe what you wrote clean and reset it
 	inputTarget.addEventListener("keypress", function(event){
 		if(event.key === "Enter") {
-			reWriteHistory.innerHTML = ``;
-			inputTarget.value = "";
-		  global.childNodes[1].childNodes[1].classList.toggle("hidden");
+      backToOriginal();
 		}
 	});
 }
@@ -130,6 +128,11 @@ function clearBorders() {
 		personElements[i].classList.remove("border");
 	}
 }
-
+function backToOriginal() {
+  currentPersonHistory.innerHTML = ``;
+  inputTarget.value = "";
+  global.childNodes[1].childNodes[1].classList.remove("hidden");
+  inputTarget.blur();
+}
 
 
